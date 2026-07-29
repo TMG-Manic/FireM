@@ -14,11 +14,11 @@ Traditionally, expanding a FiveM community to include diverse game modes; like s
 * ** Dynamic Virtual Server Switching:** Players can seamlessly transition between virtual servers (buckets) using the `/server [id]` command, a custom NUI Hub (`/hub`), or physical 3D portals in-game.
 * ** Secure Authentication:** Prevents direct connections using a one-time cryptographic token handshake between the game client and the Master Gateway.
 * ** Isolated Virtual Profiles:** Leverages `oxmysql` to save player coordinates and inventories specific to each virtual server (e.g., your RP inventory won't bleed into the Minigame hub).
-* ** Cross-Bucket Communication:** Global chat intercepts, Bungee-style `/msg` systems, and cross-server announcements via Redis Pub/Sub.
-* ** Party System:** Players can create parties, invite friends across different servers, and warp the entire party into the same virtual instance simultaneously.
-* ** Queue & State Management:** Tracks global player counts (`/glist`), locates specific players (`/find`), and strictly enforces server capacity limits.
-* ** Connection Watchdog:** Built-in Lua watchdog that polls the Gateway and triggers an emergency state-save if the network connection drops.
-* 🌐 Dynamic Area Sharding (MMO-Style Instancing): Eliminate localized lag during massive server events without fracturing your community. When the Gateway detects an overcrowded area (like a massive car meet or gang turf war), it automatically splits the crowd into temporary, isolated routing buckets. Because players only render entities and other players that belong to their specific bucket, this drastically reduces client-side entity overload and server network pressure. Your players enjoy buttery-smooth FPS during 50+ player events, all while staying unified on a single server with a seamlessly bridged global chat.
+*  Cross-Bucket Communication:** Global chat intercepts, Bungee-style `/msg` systems, and cross-server announcements via Redis Pub/Sub.
+*  Party System:** Players can create parties, invite friends across different servers, and warp the entire party into the same virtual instance simultaneously.
+*  Queue & State Management:** Tracks global player counts (`/glist`), locates specific players (`/find`), and strictly enforces server capacity limits.
+*  Connection Watchdog:** Built-in Lua watchdog that polls the Gateway and triggers an emergency state-save if the network connection drops.
+*  Dynamic Area Sharding (MMO-Style Instancing): Eliminate localized lag during massive server events without fracturing your community. When the Gateway detects an overcrowded area (like a massive car meet or gang turf war), it automatically splits the crowd into temporary, isolated routing buckets. Because players only render entities and other players that belong to their specific bucket, this drastically reduces client-side entity overload and server network pressure. Your players enjoy buttery-smooth FPS during 50+ player events, all while staying unified on a single server with a seamlessly bridged global chat.
 
 ## 📋 Prerequisites
 
