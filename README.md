@@ -7,7 +7,7 @@
 
 A robust, enterprise-grade routing architecture for FiveM. This project enables seamless virtual server instances (e.g., Roleplay and Minigames) on a single physical FXServer by bridging FiveM Routing Buckets with a Node.js Master Gateway and a Redis database.
 
-Traditionally, expanding a FiveM community to include diverse game modes—like serious roleplay and casual minigames—meant forcing server owners to spin up entirely separate servers, fracturing their community across different IPs. This architecture was designed specifically to eliminate that barrier by keeping your entire playerbase unified under a single connection. By leveraging native routing buckets and a centralized Node.js gateway, server owners can now offer multiple distinct, fully isolated environments within one physical server. This ensures that your community remains cohesive and connected, entirely removing the need to segregate your players or manage multiple costly server hosts.
+Traditionally, expanding a FiveM community to include diverse game modes; like serious roleplay and casual minigames; meant forcing server owners to spin up entirely separate servers, fracturing their community across different IPs. This architecture was designed specifically to eliminate that barrier by keeping your entire playerbase unified under a single connection. By leveraging native routing buckets and a centralized Node.js gateway, server owners can now offer multiple distinct, fully isolated environments within one physical server. This ensures that your community remains cohesive and connected, entirely removing the need to segregate your players or manage multiple costly server hosts.
 
 ## ✨ Features
 
