@@ -59,11 +59,50 @@ class GlobalStateManager {
         }
     }
 
+    async processTelemetry(playerList) {
+    const DENSITY_THRESHOLD = 25; 
+    const SHARD_RADIUS = 100.0;   
+
+    const mainRpPlayers = playerList.filter(p => p.bucket === 1);
+
+    for (let i = 0; i < mainRpPlayers.length; i++) {
+        let nearby = [mainRpPlayers[i]];
+
+        for (let j = i + 1; j < mainRpPlayers.length; j++) {
+            const p1 = mainRpPlayers[i];
+            const p2 = mainRpPlayers[j];
+
+            const dist = Math.sqrt(
+                Math.pow(p2.x - p1.x, 2) + 
+                Math.pow(p2.y - p1.y, 2) + 
+                Math.pow(p2.z - p1.z, 2)
+            );
+
+            if (dist <= SHARD_RADIUS) {
+                nearby.push(p2);
+            }
+        }
+
+        if (nearby.length > DENSITY_THRESHOLD) {
+            const shardBucketId = 1001;
+            const playersToMove = nearby.slice(Math.floor(nearby.length / 2));
+
+            for (const player of playersToMove) {
+                await this.assignPlayerToBucket(player.license, shardBucketId);
+                const payload = JSON.stringify({ license: player.license, bucket: shardBucketId });
+                await this.redisPublisher.publish('queue_transfer_ready', payload);
+            }
+            break;
+        }
+    }
+}
     
     async broadcastAnnouncement(message) {
         const payload = JSON.stringify({ author: "System", text: message, type: "announcement" });
         await redisPublisher.publish('system_announcement', payload);
     }
 }
+
+
 
 module.exports = new GlobalStateManager();

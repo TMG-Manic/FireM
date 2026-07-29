@@ -77,3 +77,31 @@ AddEventHandler('playerDropped', function(reason)
         }), { ['Content-Type'] = 'application/json' })
     end
 end)
+
+Citizen.CreateThread(function()
+    while true do
+        Wait(5000) -- Poll every 5 seconds
+        local playerPositions = {}
+
+        for _, playerId in ipairs(GetPlayers()) do
+            local src = tonumber(playerId)
+            local ped = GetPlayerPed(src)
+            local coords = GetEntityCoords(ped)
+            local license = GetPlayerIdentifierByType(src, "license")
+
+            if license then
+                table.insert(playerPositions, {
+                    license = license,
+                    x = coords.x,
+                    y = coords.y,
+                    z = coords.z,
+                    bucket = GetPlayerRoutingBucket(src)
+                })
+            end
+        end
+
+        -- Push telemetry payload to FireM
+        PerformHttpRequest(Config.GatewayURL .. "/internal/telemetry", function(err, text, headers) end, 
+        'POST', json.encode({ players = playerPositions }), { ['Content-Type'] = 'application/json' })
+    end
+end)

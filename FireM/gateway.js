@@ -156,6 +156,14 @@ app.post('/internal/validate_token', async (req, res) => {
     res.json({ valid: true, bucket: parsedData.bucket });
 });
 
+app.post('/internal/telemetry', async (req, res) => {
+    const { players } = req.body;
+    if (players && Array.isArray(players)) {
+        await StateManager.processTelemetry(players);
+    }
+    res.json({ success: true });
+});
+
 app.listen(GATEWAY_PORT, () => {
     console.log(`[Gateway] Master Dispatcher listening on port ${GATEWAY_PORT}`);
 });
