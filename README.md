@@ -20,6 +20,13 @@ Traditionally, expanding a FiveM community to include diverse game modes; like s
 *  Connection Watchdog:** Built-in Lua watchdog that polls the Gateway and triggers an emergency state-save if the network connection drops.
 *  Dynamic Area Sharding (MMO-Style Instancing): Eliminate localized lag during massive server events without fracturing your community. When the Gateway detects an overcrowded area (like a massive car meet or gang turf war), it automatically splits the crowd into temporary, isolated routing buckets. Because players only render entities and other players that belong to their specific bucket, this drastically reduces client-side entity overload and server network pressure. Your players enjoy buttery-smooth FPS during 50+ player events, all while staying unified on a single server with a seamlessly bridged global chat.
 
+## Work In Progress
+
+* 64 Player Sharding in RP servers. This feature will allow big servers to accommodate 1000 players without dealing with imbalancing. This way in a 1000 player server, there will be 16 instances of players playing together. However, based on job roles, it will balance the players immediately. If a player is a police officer and there is another shard without one, the player will be prompted to join that instance. (Maybe a better menu will make this more accomodating)
+* Auction House between shards. People can trade with the full 1000 player server.
+* Add functionality with MongoDB.
+* Create portals and small games for people waiting in the hub to join a 64 slot RP instance.
+
 ## 📋 Prerequisites
 
 Before installing, ensure your environment meets the following requirements:
