@@ -55,9 +55,6 @@ sudo apt update
 sudo apt install redis-server
 sudo service redis-server start
 ```
-
-
-
 If you are running Redis on Windows via WSL, ensure your `redis.conf` allows external connections:
 ```text
 sudo nano /etc/redis/redis.conf
@@ -99,6 +96,10 @@ Depending on how your server infrastructure is set up (e.g., natively, using WSL
 
 #### 1. Redis Connection IPs (Node.js Files)
 These files tell the Master Gateway how to connect to the Redis database. By default, they should point to `127.0.0.1` if Redis is hosted natively on the same machine as Node.js. If you are using WSL or an external Redis host, change this to the respective IP.
+In WSL find your IP using this command:
+```text
+ip addr show eth0
+```
 
 Update the `host` parameter inside the `new Redis()` initialization in the following four files:
 * `gateway.js`
