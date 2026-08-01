@@ -45,12 +45,33 @@ Before installing, ensure your environment meets the following requirements:
 ## 🚀 Installation & Setup
 
 ### 1. Redis Setup (Windows/WSL)
+Redis: Redis does not have a native Windows port. Open PowerShell as Administrator and install the Windows Subsystem for Linux (WSL) by typing:
+```text
+wsl --install
+```
+Once installed and your PC reboots, open your new Ubuntu terminal and run:
+```text
+sudo apt update
+sudo apt install redis-server
+sudo service redis-server start
+```
+
+
+
 If you are running Redis on Windows via WSL, ensure your `redis.conf` allows external connections:
+```text
+sudo nano /etc/redis/redis.conf
+```
+Modify these two items here.
+
 ```text
 bind 0.0.0.0
 protected-mode no
 ```
 *Note: Restart the Redis service after making these changes.*
+```text
+sudo service redis-server restart
+```
 
 ### 2. Master Gateway Setup (Node.js)
 1. Navigate to the `FireM` directory (Gateway).
