@@ -9,6 +9,11 @@ A robust, enterprise-grade routing architecture for FiveM. This project enables 
 
 Traditionally, expanding a FiveM community to include diverse game modes; like serious roleplay and casual minigames; meant forcing server owners to spin up entirely separate servers, fracturing their community across different IPs. This architecture was designed specifically to eliminate that barrier by keeping your entire playerbase unified under a single connection. By leveraging native routing buckets and a centralized Node.js gateway, server owners can now offer multiple distinct, fully isolated environments within one physical server. This ensures that your community remains cohesive and connected, entirely removing the need to segregate your players or manage multiple costly server hosts.
 
+## A note from the creator
+I am currently looking for servers to integrate this with. If you are a developer or server owner and want somebody to work alongside you with this kind of project, I would love to hear from you and have you in my DM's.
+
+Discord: tmg_manic
+
 ## ✨ Features
 
 *  Dynamic Virtual Server Switching:** Players can seamlessly transition between virtual servers (buckets) using the `/server [id]` command, a custom NUI Hub (`/hub`), or physical 3D portals in-game.
